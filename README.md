@@ -1,6 +1,8 @@
 Install WireGuard on Raspberry Pi
 ---------------------------------
 
+[WireGuard](https://www.wireguard.com) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPSec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it plans to be cross-platform and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.
+
 ![image](https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/rpiwireguard.png)
 
 This is not a step by step guide for absolute beginners. I'll show you the relevant parts of my config files.
