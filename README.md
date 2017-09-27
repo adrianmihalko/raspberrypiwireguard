@@ -42,14 +42,14 @@ The hard part. No. I am just joking. WireGuard is easy as pie.
 
 **2, Raspberry Pi A:**
 
-**pi@rpia:~ $ sudo cat /etc/wireguard/wg0.conf
-[Interface]
-ListenPort = 1500
-PrivateKey = PASTEHERE_rpia_private.key_CONTENT
-[Peer]
-Endpoint = ip.or.hostname:1500
-PublicKey = PASTEHERE_rpib_public.key_CONTENT 
-AllowedIPs = 0.0.0.0/0**
+    pi@rpia:~ $ sudo cat /etc/wireguard/wg0.conf
+    [Interface]
+    ListenPort = 1500
+    PrivateKey = PASTEHERE_rpia_private.key_CONTENT
+    [Peer]
+    Endpoint = ip.or.hostname:1500
+    PublicKey = PASTEHERE_rpib_public.key_CONTENT 
+    AllowedIPs = 0.0.0.0/0
 
 Raspberry Pi B:
 
