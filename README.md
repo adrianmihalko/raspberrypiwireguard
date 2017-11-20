@@ -130,4 +130,4 @@ Done.
 
 You can even enable to access remote network for all your local devices if you add a static route on your router pointing to the Raspberry Pi.
 
-Do you have question? Ask these great guys at #wireguard on Freenode.
+Do you have question? Ask these great guys at [#wireguard](http://webchat.freenode.net?randomnick=1&channels=%23wireguard&uio=d4) on Freenode.
