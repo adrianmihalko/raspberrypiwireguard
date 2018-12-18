@@ -1,3 +1,6 @@
+!!!PROBABLY OUTDATED!!!
+
+
 Install WireGuard on Raspberry Pi
 ---------------------------------
 
