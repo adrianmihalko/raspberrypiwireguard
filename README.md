@@ -201,7 +201,7 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 
 Download and install official Wireguard app: Wireguard is currently testing out the app in the [App Store's TestFlight](https://testflight.apple.com/join/63I19SDT).
 
-**Configuration:**
+**iOS configuration:**
 
 <p align="center">
   <img width="460" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/wireguard-ios.jpg">
@@ -209,7 +209,7 @@ Download and install official Wireguard app: Wireguard is currently testing out 
 
 <client2_private.key> should be automatically converted into public key after you enter it.
 
-**Android:**
+**Android configuration:**
 
 <p align="center">
   <img width="460" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/android-screen.jpg">
