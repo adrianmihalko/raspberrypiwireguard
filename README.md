@@ -19,8 +19,8 @@ On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run s
 
 **Enable ipv4 forwarding then reboot to make changes active:**
 
-**pi@raspberrypi:~ $**  `sudo sed -ir 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf`
-**pi@raspberrypi:~ $** `sudo reboot`
+**pi@raspberrypi:~ $**  `sudo sed -ir 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf`  
+**pi@raspberrypi:~ $** `sudo reboot`  
 
 To check if it has been enabled:
 
@@ -33,17 +33,17 @@ To check if it has been enabled:
 
   
 
-**pi@raspberrypi:~ $**  `mkdir wgkeys`
-**pi@raspberrypi:~ $** `cd wgkeys`
-**pi@raspberrypi:~/wgkeys $** `wg genkey > server_private.key`  
+**pi@raspberrypi:~ $**  `mkdir wgkeys`  
+**pi@raspberrypi:~ $** `cd wgkeys`  
+**pi@raspberrypi:~/wgkeys $** `wg genkey > server_private.key`    
 <sup>Warning: writing to world accessible file.
 Consider setting the umask to 077 and trying again.</sup>
 
-**pi@raspberrypi:~/wgkeys $**  `wg pubkey > server_public.key < server_private.key`
+**pi@raspberrypi:~/wgkeys $**  `wg pubkey > server_public.key < server_private.key`  
 **pi@raspberrypi:~/wgkeys $**  `wg genkey > client1_private.key`  
 <sup>Warning: writing to world accessible file.
 Consider setting the umask to 077 and trying again.</sup>
-**pi@raspberrypi:~/wgkeys $** `wg pubkey > client1_public.key < client1_private.key`
+**pi@raspberrypi:~/wgkeys $** `wg pubkey > client1_public.key < client1_private.key`  
 **pi@raspberrypi:~/wgkeys $**  `ls`  
 <sup>client1_private.key client1_public.key server_private.key server_public.key</sup>
 
@@ -54,7 +54,7 @@ Use `cat` command  to view content of the file. You need this in the next step.
 
 ## 3. Setup Wireguard interface, still on server:
 
-**pi@raspberrypi:~/wgkeys $**  `sudo nano /etc/wireguard/wg0.conf`  
+**pi@raspberrypi:~/wgkeys $**  `sudo nano /etc/wireguard/wg0.conf`    
 [Interface]
 Address = 192.168.99.1/24
 ListenPort = 500
@@ -102,9 +102,9 @@ We generated credentials for one user above.
 
 Example configuration on client:
 
-**@MacBook-Pro:/Volumes$** `sudo mkdir /etc/wireguard/`
+**@MacBook-Pro:/Volumes$** `sudo mkdir /etc/wireguard/`  
 
-**@MacBook-Pro:/Volumes$**  `sudo nano /etc/wireguard/wg0.conf`
+**@MacBook-Pro:/Volumes$**  `sudo nano /etc/wireguard/wg0.conf`  
 [Interface]
 Address = 192.168.99.2/24
 PrivateKey = <client1_private.key>
