@@ -207,8 +207,6 @@ Download and install official Wireguard app: Wireguard is currently testing out 
   <img width="500" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/ios-config.jpg">
 </p>
 
-<client2_private.key> should be automatically converted into public key after you enter it.
-
 **Android configuration:**
 
 <p align="center">
