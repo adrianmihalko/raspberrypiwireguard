@@ -1,6 +1,7 @@
 
 
 
+
 ![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
 
@@ -81,7 +82,7 @@ AllowedIPs = 192.168.99.2/32
 
 ## 4. Start Wireguard.
 
-Start Wireguard with wg-quick command.
+Start Wireguard with `wg-quick` command.
 
 ```console
 pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0 
@@ -117,8 +118,8 @@ We generated credentials for one user above.
 Example configuration on client:
 
 ```console
-@MacBook-Pro:/Volumes$ sudo mkdir /etc/wireguard/
-@MacBook-Pro:/Volumes$ sudo nano /etc/wireguard/wg0.conf 
+adrian@MacBook-Pro:/Volumes$ sudo mkdir /etc/wireguard/
+adrian@MacBook-Pro:/Volumes$ sudo nano /etc/wireguard/wg0.conf 
 [Interface]
 Address = 192.168.99.2/24
 PrivateKey = <client1_private.key>
@@ -132,7 +133,7 @@ AllowedIPs = 192.168.99.1/32, 192.168.1.1/24
 192.168.1.1/24 is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
 
 ```console
-@MacBook-Pro:/Volumes$ sudo wg-quick up wg0 
+adrian@MacBook-Pro:/Volumes$ sudo wg-quick up wg0 
 Warning: '/private/etc/wireguard/wg0.conf' is world accessible
 
 
@@ -151,7 +152,7 @@ INFO: (utun3) 2018/12/19 00:14:21 Starting wireguard-go version 0.0.20181018
 Check if Wireguard is working:
 
 ```console
-@MacBook-Pro:/Volumes$ sudo wg
+adrian@MacBook-Pro:/Volumes$ sudo wg
 interface: utun3
 public key: ht4+w8Tk28hFQCpXWnL4ftGAu/IwtMvD2yEZ+1hp7zA=
 private key: (hidden)
@@ -161,7 +162,7 @@ peer: Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 endpoint: your.publicdns.com:51820
 allowed ips: 192.168.99.1/32
 
-@MacBook-Pro:/Volumes$ ping 192.168.99.1
+adrian@MacBook-Pro:/Volumes$ ping 192.168.99.1
 
 PING 192.168.99.1 (192.168.99.1): 56 data bytes
 64 bytes from 192.168.99.1: icmp_seq=0 ttl=64 time=13.447 ms
