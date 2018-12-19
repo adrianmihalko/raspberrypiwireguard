@@ -1,7 +1,5 @@
-![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
-# raspberrypiwireguard
-Install WireGuard on Raspberry Pi
+![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
 
 ## 1. Wireguard installation (Raspberry Pi 2 and above)
@@ -37,7 +35,7 @@ On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run s
 To check if it has been enabled:
 
 **pi@raspberrypi:~ $**  `sysctl net.ipv4.ip_forward`
-net.ipv4.ip_forward = 1
+^net.ipv4.ip_forward = 1^
 
   
 
