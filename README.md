@@ -34,7 +34,7 @@ On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run s
 
 To check if it has been enabled:
 
-**pi@raspberrypi:~ $**  `sysctl net.ipv4.ip_forward`
+**pi@raspberrypi:~ $**  `sysctl net.ipv4.ip_forward`  
 <sup>net.ipv4.ip_forward = 1</sup>
 
   
