@@ -1,35 +1,36 @@
 
 
+
 ![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
 
 ## 1. Wireguard installation (Raspberry Pi 2 and above)
 
 ```console
-pi@raspberrypi:~ $  sudo apt-get update
-pi@raspberrypi:~ $  sudo apt-get upgrade 
-pi@raspberrypi:~ $  sudo apt-get install raspberrypi-kernel-headers
-pi@raspberrypi:~ $  echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list
-pi@raspberrypi:~ $  sudo apt-get install dirmngr 
-pi@raspberrypi:~ $  sudo apt-key adv --keyserver   keyserver.ubuntu.com --recv-keys 8B48AD6246925553 
-pi@raspberrypi:~ $  printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable
 pi@raspberrypi:~ $ sudo apt-get update
-pi@raspberrypi:~ $  sudo apt-get install wireguard 
-pi@raspberrypi:~ $  sudo reboot
+pi@raspberrypi:~ $ sudo apt-get upgrade 
+pi@raspberrypi:~ $ sudo apt-get install raspberrypi-kernel-headers
+pi@raspberrypi:~ $ echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list
+pi@raspberrypi:~ $ sudo apt-get install dirmngr 
+pi@raspberrypi:~ $ sudo apt-key adv --keyserver   keyserver.ubuntu.com --recv-keys 8B48AD6246925553 
+pi@raspberrypi:~ $ printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable
+pi@raspberrypi:~ $ sudo apt-get update
+pi@raspberrypi:~ $ sudo apt-get install wireguard 
+pi@raspberrypi:~ $ sudo reboot
 ```
-On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run sudo apt-get install wireguard.
+On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run `sudo apt-get install wireguard`.
 
 **Enable ipv4 forwarding then reboot to make changes active:**
 
 ```console
-pi@raspberrypi:~ $  sudo sed -ir 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf  
+pi@raspberrypi:~ $ sudo sed -ir 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf  
 pi@raspberrypi:~ $ sudo reboot
 ```
 
 To check if it has been enabled:
 
 ```console
-pi@raspberrypi:~ $  sysctl net.ipv4.ip_forward 
+pi@raspberrypi:~ $ sysctl net.ipv4.ip_forward 
 net.ipv4.ip_forward = 1
 ```
 
@@ -39,31 +40,31 @@ net.ipv4.ip_forward = 1
 
   
 ```console
-pi@raspberrypi:~ $  mkdir wgkeys
+pi@raspberrypi:~ $ mkdir wgkeys
 pi@raspberrypi:~ $ cd wgkeys  
 pi@raspberrypi:~/wgkeys $ wg genkey > server_private.key  
 Warning: writing to world accessible file.
 Consider setting the umask to 077 and trying again.
 
-pi@raspberrypi:~/wgkeys $  wg pubkey > server_public.key < server_private.key
-pi@raspberrypi:~/wgkeys $  wg genkey > client1_private.key  
+pi@raspberrypi:~/wgkeys $ wg pubkey > server_public.key < server_private.key
+pi@raspberrypi:~/wgkeys $ wg genkey > client1_private.key  
 Warning: writing to world accessible file.
 Consider setting the umask to 077 and trying again.
 pi@raspberrypi:~/wgkeys $ wg pubkey > client1_public.key < client1_private.key
-pi@raspberrypi:~/wgkeys $  ls
+pi@raspberrypi:~/wgkeys $ ls
 client1_private.key client1_public.key server_private.key server_public.key
 ```
 
 Use `cat` command  to view content of the file. You need this in the next step.
 
 ```console
-pi@raspberrypi:~/wgkeys $  cat server_public.key 
+pi@raspberrypi:~/wgkeys $ cat server_public.key 
 Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 ```
 ## 3. Setup Wireguard interface, still on server:
 
 ```console
-pi@raspberrypi:~/wgkeys $  sudo nano /etc/wireguard/wg0.conf    
+pi@raspberrypi:~/wgkeys $ sudo nano /etc/wireguard/wg0.conf    
 [Interface]
 Address = 192.168.99.1/24
 ListenPort = 500
