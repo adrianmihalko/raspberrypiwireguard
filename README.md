@@ -4,16 +4,16 @@
 
 ## 1. Wireguard installation (Raspberry Pi 2 and above)
 
-**pi@raspberrypi:~ $**  `sudo apt-get update`
-**pi@raspberrypi:~ $**  `sudo apt-get upgrade`
-**pi@raspberrypi:~ $**  `sudo apt-get install raspberrypi-kernel-headers`
-**pi@raspberrypi:~ $**  `echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list`
-**pi@raspberrypi:~ $**  `sudo apt-get install dirmngr`
-**pi@raspberrypi:~ $**  `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553`
-**pi@raspberrypi:~ $**  `printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable` 
-**pi@raspberrypi:~ $** `sudo apt-get update`
-**pi@raspberrypi:~ $**  `sudo apt-get install wireguard`
-**pi@raspberrypi:~ $**  `sudo reboot`
+**pi@raspberrypi:~ $**  `sudo apt-get update`  
+**pi@raspberrypi:~ $**  `sudo apt-get upgrade`  
+**pi@raspberrypi:~ $**  `sudo apt-get install raspberrypi-kernel-headers`  
+**pi@raspberrypi:~ $**  `echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list`  
+**pi@raspberrypi:~ $**  `sudo apt-get install dirmngr`  
+**pi@raspberrypi:~ $**  `sudo apt-key adv --keyserver   keyserver.ubuntu.com --recv-keys 8B48AD6246925553`  
+**pi@raspberrypi:~ $**  `printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable`  
+**pi@raspberrypi:~ $** `sudo apt-get update`  
+**pi@raspberrypi:~ $**  `sudo apt-get install wireguard`  
+**pi@raspberrypi:~ $**  `sudo reboot`  
 
 On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run sudo apt-get install wireguard.
 
