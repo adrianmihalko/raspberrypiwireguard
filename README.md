@@ -5,23 +5,14 @@
 ## 1. Wireguard installation (Raspberry Pi 2 and above)
 
 **pi@raspberrypi:~ $**  `sudo apt-get update`
-
 **pi@raspberrypi:~ $**  `sudo apt-get upgrade`
-
 **pi@raspberrypi:~ $**  `sudo apt-get install raspberrypi-kernel-headers`
-
 **pi@raspberrypi:~ $**  `echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list`
-
 **pi@raspberrypi:~ $**  `sudo apt-get install dirmngr`
-
 **pi@raspberrypi:~ $**  `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553`
-
 **pi@raspberrypi:~ $**  `printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable` 
-
 **pi@raspberrypi:~ $** `sudo apt-get update`
-
 **pi@raspberrypi:~ $**  `sudo apt-get install wireguard`
-
 **pi@raspberrypi:~ $**  `sudo reboot`
 
 On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run sudo apt-get install wireguard.
@@ -29,7 +20,6 @@ On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run s
 **Enable ipv4 forwarding then reboot to make changes active:**
 
 **pi@raspberrypi:~ $**  `sudo sed -ir 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf`
-
 **pi@raspberrypi:~ $** `sudo reboot`
 
 To check if it has been enabled:
@@ -44,37 +34,27 @@ To check if it has been enabled:
   
 
 **pi@raspberrypi:~ $**  `mkdir wgkeys`
-
 **pi@raspberrypi:~ $** `cd wgkeys`
+**pi@raspberrypi:~/wgkeys $** `wg genkey > server_private.key`  
+<sup>Warning: writing to world accessible file.
+Consider setting the umask to 077 and trying again.</sup>
 
-**pi@raspberrypi:~/wgkeys $** wg genkey > server_private.key
+**pi@raspberrypi:~/wgkeys $**  `wg pubkey > server_public.key < server_private.key`
+**pi@raspberrypi:~/wgkeys $**  `wg genkey > client1_private.key`  
+<sup>Warning: writing to world accessible file.
+Consider setting the umask to 077 and trying again.</sup>
+**pi@raspberrypi:~/wgkeys $** `wg pubkey > client1_public.key < client1_private.key`
+**pi@raspberrypi:~/wgkeys $**  `ls`  
+<sup>client1_private.key client1_public.key server_private.key server_public.key</sup>
 
-Warning: writing to world accessible file.
+Use `cat` command  to view content of the file. You need this in the next step.
 
-Consider setting the umask to 077 and trying again.
-
-**pi@raspberrypi:~/wgkeys $**  wg pubkey > server_public.key < server_private.key
-
-**pi@raspberrypi:~/wgkeys $**  wg genkey > client1_private.key
-
-Warning: writing to world accessible file.
-
-Consider setting the umask to 077 and trying again.
-
-**pi@raspberrypi:~/wgkeys $** wg pubkey > client1_public.key < client1_private.key
-
-**pi@raspberrypi:~/wgkeys $**  ls
-client1_private.key client1_public.key server_private.key server_public.key
-
-Use cat command  to view content of the file. You need this in the next step.
-
-**pi@raspberrypi:~/wgkeys $**  `cat server_public.key`
-Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
+**pi@raspberrypi:~/wgkeys $**  `cat server_public.key`  
+<sup>Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=</sup>
 
 ## 3. Setup Wireguard interface, still on server:
 
-**pi@raspberrypi:~/wgkeys $**  `sudo nano /etc/wireguard/wg0.conf`
-
+**pi@raspberrypi:~/wgkeys $**  `sudo nano /etc/wireguard/wg0.conf`  
 [Interface]
 Address = 192.168.99.1/24
 ListenPort = 500
@@ -88,20 +68,21 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC
 PublicKey = <client1_public.key>
 AllowedIPs = 192.168.99.2/32
 
+
 ## 4. Start Wireguard.
 
 Start Wireguard with wg-quick command.
 
-**pi@raspberrypi:~/wgkeys $** `sudo wg-quick up wg0`
-[#] ip link add wg0 type wireguard
+**pi@raspberrypi:~/wgkeys $** `sudo wg-quick up wg0`  
+<sup>[#] ip link add wg0 type wireguard
 [#] wg setconf wg0 /dev/fd/63
 [#] ip address add 192.168.99.1/24 dev wg0
 [#] ip link set mtu 1420 dev wg0
-[#] ip link set wg0 up
+[#] ip link set wg0 up</sup>
 
 Use sudo wg command to check if it is working:
 
-**pi@raspberrypi:~/wgkeys $**  `sudo wg`
+**pi@raspberrypi:~/wgkeys $**  `sudo wg`  
 interface: wg0
 public key: Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 private key: (hidden)
@@ -112,9 +93,8 @@ allowed ips: 192.168.99.2/32
 
 You can launch automatically at startup:
 
-**pi@raspberrypi:~/wgkeys $** `sudo systemctl enable wg-quick@wg0`
-
-Created symlink /etc/systemd/system/multi-user.target.wants/wg-quick@wg0.service → /lib/systemd/system/wg-quick@.service.
+**pi@raspberrypi:~/wgkeys $** `sudo systemctl enable wg-quick@wg0`  
+<sup>Created symlink /etc/systemd/system/multi-user.target.wants/wg-quick@wg0.service → /lib/systemd/system/wg-quick@.service.</sup>
 
 ## 5. Setup clients
 
@@ -137,7 +117,7 @@ AllowedIPs = 192.168.99.1/32, 192.168.1.1/24
 
 192.168.1.1/24 is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
 
-**@MacBook-Pro:/Volumes$** `sudo wg-quick up wg0`
+**@MacBook-Pro:/Volumes$** `sudo wg-quick up wg0`  
 Warning: `/private/etc/wireguard/wg0.conf' is world accessible
 
 [#] wireguard-go utun
@@ -153,7 +133,7 @@ INFO: (utun3) 2018/12/19 00:14:21 Starting wireguard-go version 0.0.20181018
 
 Check if Wireguard is working:
 
-**@MacBook-Pro:/Volumes$** `sudo wg`
+**@MacBook-Pro:/Volumes$** `sudo wg`  
 interface: utun3
 public key: ht4+w8Tk28hFQCpXWnL4ftGAu/IwtMvD2yEZ+1hp7zA=
 private key: (hidden)
@@ -171,7 +151,6 @@ PING 192.168.99.1 (192.168.99.1): 56 data bytes
 --- 192.168.99.1 ping statistics ---
 
 3 packets transmitted, 3 packets received, 0.0% packet loss
-
 round-trip min/avg/max/stddev = 4.565/8.495/13.447/3.697 ms
 
 
