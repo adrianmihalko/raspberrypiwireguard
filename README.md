@@ -2,6 +2,7 @@
 
 
 
+
 ![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
 
@@ -204,13 +205,14 @@ Download and install official Wireguard app: Wireguard is currently testing out 
 
   
 
-![](https://lh6.googleusercontent.com/x_TfFpJhLmxfaE7OddR47b8wJhFQz8WyCpmVB78gTH0mvXeNi9PVrXRmwRN2GkoS-sEPoHrmFsXhPFOOP9b15-tSDyXKCpOhqk16A-5CmEp1piy1b6DgpTaI9yu6cZOCTtyPle4l)
+![](https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/wireguard-ios.jpg =350px)
+
 
 <client2_private.key> should be automatically converted into public key after you enter it.
 
 **Android:**
 
-  
+![](https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/android-screen.jpg =350px)
 
 **Additional INFO:**
 
