@@ -125,6 +125,11 @@ Created symlink /etc/systemd/system/multi-user.target.wants/wg-quick@wg0.service
 
 ## 6. Setup clients
 
+You will need to install wireguard on clients as well.  Wireguard does not have separate apps for server and client, just differences in the configuration file. 
+On Debian based distros (Ubuntu, Debian etc.) you just run `sudo apt-get install wireguard`.
+
+For installing on other systems, please visit Wireguard [website](https://www.wireguard.com/install/). 
+
 We generated credentials for one user above.
 
 Example configuration on client:
