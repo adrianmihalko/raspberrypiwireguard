@@ -103,7 +103,7 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 [#] ip link set wg0 up
 ```
 
-Use sudo wg command to check if it is working:
+Use `sudo wg` command to check if it is working:
 
 ```console
 pi@raspberrypi:~/wgkeys $ sudo wg 
@@ -147,7 +147,7 @@ PublicKey = <server_public.key>
 AllowedIPs = 192.168.99.1/32, 192.168.1.1/24
 ```
 
-192.168.1.1/24 is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
+**192.168.1.1/24** is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
 
 ```console
 adrian@MacBook-Pro:/Volumes$ sudo wg-quick up wg0 
