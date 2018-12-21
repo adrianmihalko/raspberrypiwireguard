@@ -36,9 +36,15 @@ pi@raspberrypi:~ $ sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
 ```
 
-  
+## 2. Configuring WireGuard
 
-## 2. Generate private and public keys for server and client1
+We cover two way of setting up Wireguard and clients:
+
+- manually: that's what we do in this document
+- semi automatic mode via WireGuard [User Management Script](https://github.com/adrianmihalko/raspberrypiwireguard/wiki/User-management-with-Wireguard-User-Management-script)
+
+
+## 3. Generate private and public keys for server and client1
 
   
 ```console
@@ -63,7 +69,7 @@ Use `cat` command  to view content of the file. You need this in the next step.
 pi@raspberrypi:~/wgkeys $ cat server_public.key 
 Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 ```
-## 3. Setup Wireguard interface, still on server:
+## 4. Setup Wireguard interface, still on server:
 
 ```console
 pi@raspberrypi:~/wgkeys $ sudo nano /etc/wireguard/wg0.conf    
@@ -81,7 +87,7 @@ PublicKey = <client1_public.key>
 AllowedIPs = 192.168.99.2/32
 ```
 
-## 4. Start Wireguard.
+## 5. Start Wireguard.
 
 Start Wireguard with `wg-quick` command.
 
@@ -112,7 +118,7 @@ pi@raspberrypi:~/wgkeys $ sudo systemctl enable wg-quick@wg0
 Created symlink /etc/systemd/system/multi-user.target.wants/wg-quick@wg0.service → /lib/systemd/system/wg-quick@.service.
 ```
 
-## 5. Setup clients
+## 6. Setup clients
 
 We generated credentials for one user above.
 
