@@ -101,9 +101,11 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 [#] ip address add 192.168.99.1/24 dev wg0
 [#] ip link set mtu 1420 dev wg0
 [#] ip link set wg0 up
+```
 
 Use sudo wg command to check if it is working:
 
+```console
 pi@raspberrypi:~/wgkeys $ sudo wg 
 interface: wg0
 public key: Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
