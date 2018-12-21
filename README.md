@@ -20,7 +20,7 @@ pi@raspberrypi:~ $ sudo apt-get update
 pi@raspberrypi:~ $ sudo apt-get install wireguard 
 pi@raspberrypi:~ $ sudo reboot
 ```
-On other Debian based distros (Ubuntu, Debian etc.) on PC you just need to run `sudo apt-get install wireguard`.
+Raspberry Pi 1, Zero, ZeroW requires [manual compiling](https://github.com/adrianmihalko/raspberrypiwireguard/wiki/Install-WireGuard-on-Raspberry-Pi-1,-2-(not-v1.2),-Zero,-Zero-W).
 
 **Enable ipv4 forwarding then reboot to make changes active:**
 
