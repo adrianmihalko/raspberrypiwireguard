@@ -36,6 +36,9 @@ pi@raspberrypi:~ $ sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
 ```
 
+If you get `net.ipv4.ip_forward = 0`, please manually edit /etc/sysctl.conf and add `net.ipv4.ip_forward = 1`.
+
+
 ## 2. Configuring WireGuard
 
 We cover two way of setting up Wireguard and clients:
