@@ -205,7 +205,7 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick down wg0
 pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 ```
 
-Download and install official Wireguard app: Wireguard is currently testing out the app in the [App Store's TestFlight](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8).
+Download and install official Wireguard app: Wireguard beta is available in the [App Store](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8).
 
 **iOS configuration:**
 
