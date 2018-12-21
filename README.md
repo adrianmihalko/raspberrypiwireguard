@@ -215,9 +215,9 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick down wg0
 pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 ```
 
-Download and install official Wireguard app: Wireguard beta is available in the [App Store](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8).
-
 **iOS configuration:**
+
+Download and install official Wireguard app: Wireguard beta is available in the [App Store](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8).
 
 <p align="center">
   <img width="500" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/ios-config.jpg">
@@ -231,11 +231,35 @@ Download and install official Wireguard app: Wireguard beta is available in the 
 
 **Additional INFO:**
 
-If you put 0.0.0.0/0 in AllowedIPs on clients, all traffic will be redirected trough this interface.
+If you put **0.0.0.0/0** in AllowedIPs on clients, all traffic will be redirected trough this interface.
 
+**Q&A:**
+
+**Q: No network problems if the lans are in the same dhcp range?**
+
+A: You can't have same dhcp range on both sides. There are workarounds, but it is not trivial to set up.
+
+**Q: Do you need port forward?**
+
+A: Yes, you need to forward one port, type: UDP. In example we used port 51820.
+
+**Q: Can you make a VM with Wireguard instead of a Raspberry Pi?**
+
+A: Of course you can, there is no restriction, the configuration is the same. Virtual machine, physical machine, doesn’t matter.
+
+**Resources:**
+
+**WireGuard website:**
+https://www.wireguard.com
+
+**WireGuard presentation**
+https://www.wireguard.com/talks/eindhoven2018-slides.pdf
+
+**Actual version of this guide is available at:**
+https://github.com/adrianmihalko/raspberrypiwireguard/
   
 
-TODO:
+**TODO:**
 
 -   Port forwarding on router UDP 51820    
 -   Double WARN users for using the right key at the right place
