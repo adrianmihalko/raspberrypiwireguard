@@ -36,7 +36,7 @@ pi@raspberrypi:~ $ sysctl net.ipv4.ip_forward
 net.ipv4.ip_forward = 1
 ```
 
-If you get `net.ipv4.ip_forward = 0`, please manually edit /etc/sysctl.conf and add `net.ipv4.ip_forward = 1`.
+If you get `net.ipv4.ip_forward = 0`, please manually edit `sudo nano /etc/sysctl.conf` and add `net.ipv4.ip_forward = 1`.
 
 
 ## 2. Configuring WireGuard
@@ -72,7 +72,7 @@ Use `cat` command  to view content of the file. You need this in the next step.
 pi@raspberrypi:~/wgkeys $ cat server_public.key 
 Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 ```
-## 4. Setup Wireguard interface, still on server:
+## 4. Setup Wireguard interface on server
 
 ```console
 pi@raspberrypi:~/wgkeys $ sudo nano /etc/wireguard/wg0.conf    
@@ -90,7 +90,7 @@ PublicKey = <client1_public.key>
 AllowedIPs = 192.168.99.2/32
 ```
 
-## 5. Start Wireguard.
+## 5. Start Wireguard
 
 Start Wireguard with `wg-quick` command.
 
@@ -215,7 +215,7 @@ pi@raspberrypi:~/wgkeys $ sudo wg-quick down wg0
 pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
 ```
 
-**iOS configuration:**
+**iOS configuration**
 
 Download and install official Wireguard app: Wireguard beta is available in the [App Store](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8).
 
@@ -223,7 +223,7 @@ Download and install official Wireguard app: Wireguard beta is available in the 
   <img width="500" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/ios-config.jpg">
 </p>
 
-**Android configuration:**
+**Android configuration**
 
 <p align="center">
   <img width="460" src="https://raw.githubusercontent.com/adrianmihalko/raspberrypiwireguard/master/android-screen.jpg">
