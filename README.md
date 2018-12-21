@@ -75,7 +75,7 @@ Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 pi@raspberrypi:~/wgkeys $ sudo nano /etc/wireguard/wg0.conf    
 [Interface]
 Address = 192.168.99.1/24
-ListenPort = 500
+ListenPort = 51820
 
 PrivateKey = <server_private.key>
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
