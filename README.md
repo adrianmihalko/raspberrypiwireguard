@@ -144,10 +144,10 @@ PrivateKey = <client1_private.key>
 [Peer]
 Endpoint = your.publicdns.com:51820
 PublicKey = <server_public.key>
-AllowedIPs = 192.168.99.1/32, 192.168.1.1/24
+AllowedIPs = 192.168.99.1/32, 192.168.1.0/24
 ```
 
-**192.168.1.1/24** is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
+**192.168.1.0/24** is my remote LAN subnet, if you add here your own network, you can access remote LAN devices from the client.
 
 ```console
 adrian@MacBook-Pro:/Volumes$ sudo wg-quick up wg0 
