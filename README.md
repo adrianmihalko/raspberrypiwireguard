@@ -26,7 +26,7 @@ Raspberry Pi 1, Zero, ZeroW requires [manual compiling](https://github.com/adria
 
 ```console
 pi@raspberrypi:~ $ sudo perl -pi -e 's/#{1,}?net.ipv4.ip_forward ?= ?(0|1)/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf 
-pi@raspberrypi:~ $ sudo reboot
+pi@raspberrypi:~ $ sudo sysctl --system
 ```
 
 To check if it has been enabled:
