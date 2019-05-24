@@ -81,6 +81,7 @@ Address = 192.168.99.1/24
 ListenPort = 51820
 
 PrivateKey = <server_private.key>
+#replace eth0 with the interface open to the internet (e.g might be wlan0 if wifi)
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
