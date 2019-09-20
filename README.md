@@ -5,6 +5,10 @@
 
 ![](https://lh5.googleusercontent.com/o7TqWF6oMhFjabUwG0Z4eu0zpQVcfdE_17pOfh_r-E5DUMlFOSd4M2UnPtyVfEgXrq5ZpolauPsH0c-eS04zOvmC1oGBXBfI2BZWQCWqArVlZscg-_pyg8scj8BEDNe2ZOgKW_75)
 
+**Automated Script:**
+```
+https://github.com/complexorganizations/wireguard-install
+```
 
 ## 1. Wireguard installation (Raspberry Pi 2 v1.2 and above)
 
