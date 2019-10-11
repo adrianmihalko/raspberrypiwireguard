@@ -212,7 +212,7 @@ pi@raspberrypi:~/wgkeys $ sudo nano /etc/wireguard/wg0.conf
 [Peer]
 #Client2
 PublicKey = <client2_public.key>
-AllowedIPs = 192.168.99.2/32
+AllowedIPs = 192.168.99.3/32
 
 pi@raspberrypi:~/wgkeys $ sudo wg-quick down wg0
 pi@raspberrypi:~/wgkeys $ sudo wg-quick up wg0
