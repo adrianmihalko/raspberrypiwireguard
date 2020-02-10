@@ -14,10 +14,7 @@ pi@raspberrypi:~ $ sudo apt-get upgrade
 pi@raspberrypi:~ $ sudo apt-get install raspberrypi-kernel-headers
 pi@raspberrypi:~ $ echo "deb http://deb.debian.org/debian/ unstable main" | sudo tee --append /etc/apt/sources.list.d/unstable.list
 pi@raspberrypi:~ $ sudo apt-get install dirmngr 
-pi@raspberrypi:~ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
-pi@raspberrypi:~ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
-pi@raspberrypi:~ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
-pi@raspberrypi:~ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "80D1 5823 B7FD 1561 F9F7  BCDD DC30 D7C2 3CBB ABEE"
+pi@raspberrypi:~ $ wget -O - https://ftp-master.debian.org/keys/archive-key-$(lsb_release -sr).asc | sudo apt-key add -
 pi@raspberrypi:~ $ printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | sudo tee --append /etc/apt/preferences.d/limit-unstable
 pi@raspberrypi:~ $ sudo apt-get update
 pi@raspberrypi:~ $ sudo apt-get install wireguard 
